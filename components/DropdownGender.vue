@@ -18,7 +18,7 @@ const items = [
 
 <style>
 .custom-dropdown {
-  width: w-60;
+  width: 'w-60';
 }
 </style>
 
