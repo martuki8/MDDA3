@@ -18,7 +18,7 @@ const items = [
 
 <style>
 .custom-dropdown {
-  width: 200px; /* Cambia el valor según la anchura deseada */
+  width: w-60;
 }
 </style>
 
