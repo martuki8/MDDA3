@@ -1,3 +1,4 @@
 <template>
     <DropdownGender/>
+    <RadioButtonGender/>
 </template>
