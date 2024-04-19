@@ -5,7 +5,7 @@ const items = [
     icon: 'i-heroicons-face-smile-20-solid'
   }, {
     label: 'Male',
-    icon: 'i-heroicons-arrow-right-circle-20-solid'
+    icon: 'i-heroicons-face-smile-20-solid'
   }]
 ]
 </script>

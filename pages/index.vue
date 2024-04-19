@@ -1,3 +1,3 @@
 <template>
-    <Dropdown/>
+    <DropdownGender/>
 </template>
