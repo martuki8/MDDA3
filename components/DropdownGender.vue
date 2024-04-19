@@ -12,7 +12,7 @@ const items = [
 
 <template>
   <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
-    <UButton color="white" label="Choose the patient gener" trailing-icon="i-heroicons-chevron-down-20-solid" />
+    <UButton color="white" label="Choose the patient gener" trailing-icon="i-heroicons-chevron-down-20-solid" width="24px" />
   </UDropdown>
 </template>
 
