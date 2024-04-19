@@ -10,15 +10,12 @@ const items = [
 ]
 </script>
 
+
+
+
+
 <template>
-  <UDropdown :items="items" :popper="{ placement: 'bottom-start'}" class="custom-dropdown">
+  <UDropdown :items="items" :popper="{ placement: 'bottom-start'}" :style="{ width: '12rem' }">
     <UButton color="white" label="Choose the patient gener" trailing-icon="i-heroicons-chevron-down-20-solid" />
   </UDropdown>
 </template>
-
-<style>
-.custom-dropdown {
-  width: w-60;
-}
-</style>
-
