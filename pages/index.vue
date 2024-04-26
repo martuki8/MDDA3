@@ -7,7 +7,7 @@
     <div class="m-16 ...">
         <RadioButtonGender/>
         <div class="pt-6 ...">
-            <DropdownGender/>
+            <DropdownAge/>
         </div>
     </div>
     
