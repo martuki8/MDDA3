@@ -1,7 +1,7 @@
 <template>
 
     <div class="m-8 ...">
-        <BreadCrumb/>
+        <!--BreadCrumb/-->
     </div>
 
     <div class="m-16 ...">
