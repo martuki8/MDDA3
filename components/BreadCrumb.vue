@@ -9,6 +9,7 @@ const links = [{
 }]
 </script>
 
+
 <template>
   <UBreadcrumb :links="links" :divider="null" :ui="{ ol: 'gap-x-3' }">
     <template #icon="{ link, index, isActive }">
