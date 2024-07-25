@@ -1,5 +1,6 @@
 <template>
-    Página dios
+  <div>
+    Página dos
     <UContainer>
     <UCard class="mt-10">
       <template #header>
@@ -11,4 +12,5 @@
       <UButton icon="i-heroicons-book-open" to="https://ui.nuxt.com" target="_blank">Open Nuxt UI Documentation</UButton>
     </UCard>
   </UContainer>
+  </div>
 </template>
