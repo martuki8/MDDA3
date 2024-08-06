@@ -7,7 +7,7 @@
         </div>
 
     </div>
-    <div class="flex justify-center py-4">
+    <div class="flex justify-center py-6">
         <UButton color="blue" class="flex justify-center py-2 px-4">
             Search
         </UButton>
