@@ -1,16 +1,15 @@
 <template>
 
-    <div class="m-16 ...">
-
-        <RadioButtonGender/>
-        <div class="pt-6 ...">
+    <div class="m-2 flex justify-center">
+        <RadioButtonGender class="px-10"/>
+        <div class="pt-6 flex justify-center px-10">
             <DropdownAge/>
         </div>
-        <div>
-            <UButton color="red">
-                Search
-            </UButton>
-        </div>
+
     </div>
-    
+    <div class="flex justify-center py-4">
+        <UButton color="blue" class="flex justify-center py-2 px-4">
+            Search
+        </UButton>
+    </div>
 </template>
