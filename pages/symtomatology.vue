@@ -1,6 +1,5 @@
 <template>
   <div>
-    Página dos
     <UContainer>
     <UCard class="mt-10">
       <template #header>
