@@ -1,10 +1,16 @@
 <script setup lang="ts">
+
+const sort = ref({
+  column: 'symptom',
+  direction: 'asc'
+})
+
 const columns = [{
-  key: 'id',
-  label: 'HPO'
-}, {
   key: 'symptom',
   label: 'Symptom'
+}, {
+  key: 'id',
+  label: 'HPO'
 }]
 
 const people = [{
@@ -17,5 +23,5 @@ const people = [{
 </script>
 
 <template>
-  <UTable :columns="columns" :rows="people" />
+  <UTable :columns="columns" :rows="people" :sort="sort" />
 </template>
