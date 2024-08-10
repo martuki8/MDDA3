@@ -13,4 +13,3 @@ const selected = ref('female')
 <template>
   <URadioGroup v-model="selected" legend="Select the patient gender" color="blue" :options="options" />
 </template>
-
