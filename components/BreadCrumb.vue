@@ -7,7 +7,7 @@ const links = [{
   to: '/'
 }, {
   label: 'Symptomatology',
-  to: '/symtomatology'
+  to: '/symptomatology'
 }, {
   label: 'Prediction',
   to: '/prediction'

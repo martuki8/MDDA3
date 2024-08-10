@@ -35,7 +35,7 @@ const people = [{
 
 ]
 
-const selected = ref(people[0].id)
+const selected = ref<number | null>(null); // Inicialitza amb null perque el placeholder es mostri
 </script>
 
 <template>
