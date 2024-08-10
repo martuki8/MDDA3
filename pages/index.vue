@@ -1,20 +1,41 @@
 <template>
-    <UCard class="flex justify-center w-[400px]">
-        <div class="m-2 flex justify-center">
-            <RadioButtonGender class="px-10 flex justify-center" />
-        </div>
+    <div>
+        <UContainer>
+            <UCard class="w-[800px]">
+                <template #header>
+                    <div class="flex justify-between text-blue-900">
+                        To start the prediction process select the patient sex and age. Then click the 'Continue
+                        button'.
+                    </div>
+                </template>
 
-        <div class="pt-6 flex justify-center py-6">
-            <DropdownAge />
-        </div>
+                <div class="m-2 flex justify-center">
+                    <RadioButtonGender class="px-10 flex justify-center" />
+                </div>
 
-        <div class="flex justify-center">
-            <UButton color="blue" class="flex justify-center py-2 px-4">
-                Continue
-            </UButton>
-        </div>
+                <div class="pt-6 flex justify-center py-6">
+                    <DropdownAge />
+                </div>
+
+                <div class="flex justify-center">
+                    <SelectDropdownAge></SelectDropdownAge>
+                </div>
+
+                <template #footer>
+                    <Placeholder class="h-8" />
+                    <div class="flex justify-center">
+                        <UButton color="blue" class="flex justify-center py-2 px-4">
+                            Continue
+                        </UButton>
+                    </div>
+                </template>
 
 
-    </UCard>
+
+
+            </UCard>
+        </UContainer>
+    </div>
+
 
 </template>

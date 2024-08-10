@@ -1,5 +1,5 @@
 <template>
-    <header class="border-b-2 border-blue-200 flex justify-between py-4 px-4">
+    <header class="border-b-2 border-blue-800 border-opacity-30 flex justify-between py-4 px-4">
         <AppLogo class="scale-50 w-3">
         </AppLogo>
 
