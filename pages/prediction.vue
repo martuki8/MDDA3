@@ -8,12 +8,7 @@
     <div>
       <UContainer>
       <UCard class="mt-10">
-        <template #header>
-          <div class="flex justify-between">
-            <h1>Aqui posare el buscador de simptomes</h1>
-          </div>
-        </template>
-        <SymtomTable></SymtomTable>
+        resultats
       </UCard>
     </UContainer>
     </div>

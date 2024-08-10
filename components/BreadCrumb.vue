@@ -3,9 +3,11 @@ const links = [{
   label: 'Patient data',
   to: '/'
 }, {
-  label: 'Symptomatology'
+  label: 'Symptomatology',
+  to: '/symtomatology'
 }, {
-  label: 'Prediction'
+  label: 'Prediction',
+  to: '/prediction'
 }]
 </script>
 
@@ -13,14 +15,10 @@ const links = [{
 <template>
   <UBreadcrumb :links="links" :divider="null" :ui="{ ol: 'gap-x-3' }">
     <template #icon="{ link, index, isActive }">
-      <UAvatar
-        :alt="(index + 1 ).toString()"
-        :ui="{
-          background: isActive ? 'bg-primary-500 dark:bg-primary-400' : undefined,
-          placeholder: isActive ? 'text-white dark:text-gray-900' : !!link.to ? 'group-hover:text-gray-700 dark:group-hover:text-gray-200' : ''
-        }"
-        size="xs"
-      />
+      <UAvatar :alt="(index + 1).toString()" :ui="{
+        background: isActive ? 'bg-primary-500 dark:bg-primary-400' : undefined,
+        placeholder: isActive ? 'text-white dark:text-gray-900' : !!link.to ? 'group-hover:text-gray-700 dark:group-hover:text-gray-200' : ''
+      }" size="xs" />
     </template>
   </UBreadcrumb>
 </template>

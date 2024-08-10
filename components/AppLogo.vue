@@ -1,0 +1,34 @@
+<script setup lang="ts">
+const colorMode = useColorMode()
+const isDark = computed({
+  get () {
+    return colorMode.value === 'dark'
+  },
+  set () {
+    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+  }
+})
+
+const crossColour= computed(()=>{
+    return isDark.value ? "#214872" : "#ffffff" //ternaria
+}) //Funcion anonima per a que reaccioni amb el canvi de mode
+
+const logoColour= computed(()=>{
+    return !isDark.value ? "#214872" : "#ffffff" //ternaria
+}) 
+
+</script>
+
+<template>
+    <ClientOnly>
+
+        <svg viewBox="0 0 463 252" width="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="94.5" cy="94.5" r="94.5" :fill="logoColour"/>
+            <path d="m105 175.5 49.5-23.816v47.632L105 175.5Z" :fill="logoColour"/>
+            <path :fill="crossColour" d="M75 48h39v93H75z"/>
+            <path :fill="crossColour" d="M48 117V78h93v39z"/>
+            <path d="M154 236v-68.7h19.4l18.4 32.8 18.4-32.8h19.4V236h-19.4v-36.8L191.8 232l-18.4-32.8V236H154Zm87.598 0v-68.7h25.6c24 0 41 14.2 41 34.3 0 20.1-17 34.4-41 34.4h-25.6Zm19.4-17.6h9.4c10.4 0 17.8-7 17.8-16.8s-7.4-16.7-17.8-16.7h-9.4v33.5Zm56.576 17.6v-68.7h25.6c24 0 41 14.2 41 34.3 0 20.1-17 34.4-41 34.4h-25.6Zm19.4-17.6h9.4c10.4 0 17.8-7 17.8-16.8s-7.4-16.7-17.8-16.7h-9.4v33.5ZM437.326 236l-3.5-9.2h-23.9l-3.5 9.2h-21.9l26.4-68.7h21.9l26.4 68.7h-21.9Zm-21.9-23.5h12.9l-6.4-16.7-6.5 16.7Z" :fill="logoColour"/>
+        </svg>
+
+    </ClientOnly>
+</template>
