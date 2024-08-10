@@ -13,25 +13,16 @@
                     <RadioButtonGender class="px-10 flex justify-center" />
                 </div>
 
-                <div class="pt-6 flex justify-center py-6">
-                    <DropdownAge />
-                </div>
-
-                <div class="flex justify-center">
-                    <SelectDropdownAge></SelectDropdownAge>
-                </div>
+                <SelectorAge class="pt-6 flex justify-center py-6"></SelectorAge>
 
                 <template #footer>
-                    <Placeholder class="h-8" />
+
                     <div class="flex justify-center">
                         <UButton color="blue" class="flex justify-center py-2 px-4">
                             Continue
                         </UButton>
                     </div>
                 </template>
-
-
-
 
             </UCard>
         </UContainer>
