@@ -54,7 +54,7 @@ const filteredRows = computed(() => {
 <template>
   <div>
     <div class="flex px-3 py-3.5 border-b border-gray-200 dark:border-gray-700">
-      <UInput v-model="q" placeholder="Filter symptoms..." />
+      <UInput v-model="q" placeholder="Filter symptoms..." class="w-96" />
     </div>
     <UTable v-model="selected" :columns="columns" :rows="filteredRows" :sort="sort" />
   </div>
