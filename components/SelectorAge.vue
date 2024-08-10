@@ -1,4 +1,7 @@
 <script setup lang="ts">
+
+const model = defineModel()
+
 const people = [{
     id: 1,
     name: 'Neonatal period: Birth to 28 days.'
@@ -39,6 +42,6 @@ const selected = ref<number | null>(null); // Inicialitza amb null perque el pla
 </script>
 
 <template>
-    <USelectMenu v-model="selected" :options="people" placeholder="Select the patient age" value-attribute="id"
+    <USelectMenu v-model="model" :options="people" placeholder="Select the patient age" value-attribute="id"
         option-attribute="name" />
 </template>

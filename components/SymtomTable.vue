@@ -23,7 +23,7 @@ const symptoms = [{
 }]
 
 
-function select (row) {
+function select(row) {
   const index = selected.value.findIndex((item) => item.id === row.id)
   if (index === -1) {
     selected.value.push(row)
@@ -52,7 +52,11 @@ const filteredRows = computed(() => {
 </script>
 
 <template>
-  <UTable v-model="selected" :columns="columns" :rows="symptoms" :sort="sort" />
+  <div>
+    <div class="flex px-3 py-3.5 border-b border-gray-200 dark:border-gray-700">
+      <UInput v-model="q" placeholder="Filter symptoms..." />
+    </div>
+    <UTable v-model="selected" :columns="columns" :rows="filteredRows" :sort="sort" />
+  </div>
 
 </template>
-
