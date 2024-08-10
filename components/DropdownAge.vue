@@ -34,13 +34,13 @@ const items = [
 </script>
 
 <template>
-  <UDropdown :items="items" :popper="{ placement: 'bottom-start'}" class="custom-dropdown">
+  <UDropdown :items="items" :popper="{ placement: 'bottom-start' }" class="custom-dropdown">
     <UButton color="white" label="Choose the patient age" trailing-icon="i-heroicons-chevron-down-20-solid" />
   </UDropdown>
 </template>
 
 <style>
 .custom-dropdown {
-  width: w-300;
+  width: w-60;
 }
 </style>

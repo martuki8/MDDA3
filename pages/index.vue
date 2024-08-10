@@ -16,7 +16,6 @@
                 <SelectorAge class="pt-6 flex justify-center py-6"></SelectorAge>
 
                 <template #footer>
-
                     <div class="flex justify-center">
                         <UButton color="blue" class="flex justify-center py-2 px-4">
                             Continue
