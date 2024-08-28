@@ -5,44 +5,44 @@ const model = defineModel()
 const people = [{
     id: 1,
     name: 'Neonatal period: Birth to 28 days.',
-    value: "HP:0003674"
+    value: "HP:0003623"
 }, {
     id: 2,
     name: 'Infancy: 1 month to 1 year.',
-    value: "HP:0003674"
+    value: "HP:0003593"
 }, {
     id: 3,
     name: 'Toddlerhood: 1 to 3 years.',
-    value: "HP:0003674"
+    value: "HP:0011463"
 }, {
     id: 4,
     name: 'Preschool age: 3 to 5 years.',
-    value: "HP:0003674"
+    value: "HP:0011463"
 },
 {
     id: 5,
     name: 'School age: 6 to 12 years.',
-    value: "HP:0003674"
+    value: "HP:0003621"
 },
 {
     id: 6,
     name: 'Adolescence: 13 to 18 years.',
-    value: "HP:0003674"
+    value: "HP:0003621"
 },
 {
     id: 7,
     name: 'Young adulthood: 19 to 39 years.',
-    value: "HP:0003674"
+    value: "HP:0011462"
 },
 {
     id: 8,
     name: 'Middle adulthood: 40 to 64 years.',
-    value: "HP:0003674"
+    value: "HP:0003596"
 },
 {
     id: 9,
     name: 'Late adulthood: 65 years and older.',
-    value: "HP:0003674"
+    value: "HP:0003584"
 }
 
 ]

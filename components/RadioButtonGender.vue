@@ -1,13 +1,13 @@
 <script setup lang="ts">
 const options = [{
-  value: 'HP:0012952',
+  value: "HP:0012954",
   label: 'Female'
 }, {
-  value: 'HP:0012952',
+  value: "HP:0012955",
   label: 'Male'
 }]
 
-const selected = defineModel('HP:0012952') //female
+const selected = defineModel("HP:0012954") //female
 </script>
 
 <template>
