@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+// columns
 const columns = [{
     key: 'prob',
     label: 'Probability'
@@ -11,26 +12,26 @@ const columns = [{
     label: 'MONDO Id'
 }]
 
-//rows
+// rows
 const diseases = [{
-    prob: "High",
+    prob: "high",
     diseaseName: 'developmental and epileptic encephalopathy, 25',
     mondo: 'MONDO:0014392'
 }, {
-    prob: "High",
+    prob: "high",
     diseaseName: 'lymphatic malformation 4',
     mondo: 'MONDO:0014393'
 }, {
-    prob: "Medium",
+    prob: "medium",
     diseaseName: 'Diamond-Blackfan anemia 13',
     mondo: 'MONDO:0014394'
 }, {
-    prob: "Low",
+    prob: "low",
     diseaseName: 'frontotemporal dementia and/or amyotrophic lateral sclerosis 2',
     mondo: 'MONDO:0014395'
 }]
 
-// Probability - no he conseguit encara que funcioni
+// Probability statuses
 const probStatus = [{
     key: 'high',
     label: 'High',
@@ -45,14 +46,29 @@ const probStatus = [{
     value: false
 }]
 
-function getProbabilityColor(prob: string) {
-    switch (prob) {
+// Probability color class mapping
+function getProbabilityClasses(prob: string) {
+    switch (prob.toLowerCase()) {
         case "high":
-            return "green"
-        case "madium":
-            return "yellow"
+            return {
+                background: 'bg-green-300',
+                text: 'text-green-900'
+            }
+        case "medium":
+            return {
+                background: 'bg-yellow-300',
+                text: 'text-yellow-900'
+            }
         case "low":
-            return "red"
+            return {
+                background: 'bg-red-300',
+                text: 'text-red-900'
+            }
+        default:
+            return {
+                background: 'bg-blue-300',
+                text: 'text-blue-900'
+            }
     }
 }
 
@@ -61,7 +77,10 @@ function getProbabilityColor(prob: string) {
 <template>
     <UTable :columns="columns" :rows="diseases">
         <template #prob-data="{ row }">
-            <UBadge :label="row.prob" :color="getProbabilityColor(row.prob)"></UBadge>
+            <span class="inline-block rounded-full px-3 py-1 text-sm font-semibold text-center"
+                :class="[getProbabilityClasses(row.prob).background, getProbabilityClasses(row.prob).text]">
+                {{ row.prob }}
+            </span>
         </template>
     </UTable>
 </template>
