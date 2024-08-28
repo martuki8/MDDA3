@@ -5,7 +5,7 @@ import type { FormError, FormSubmitEvent } from '#ui/types'
 const router = useRouter()
 
 const state = reactive({
-    gender: "HP:0012952", //Female hpo by default
+    gender: "HP:0012954", //Female hpo by default
     SelectorAge: undefined
 })
 
