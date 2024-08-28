@@ -10,11 +10,12 @@ const sort = ref({
 })
 
 const columns = [{
-  key: 'id',
-  label: 'HPO'
-}, {
   key: 'name',
   label: 'Symptom'
+},
+{
+  key: 'id',
+  label: 'HPO'
 }]
 
 const symptoms = ref<Array<{ id: string, name: string }>>([])
