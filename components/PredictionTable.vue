@@ -45,8 +45,23 @@ const probStatus = [{
     value: false
 }]
 
+function getProbabilityColor(prob: string) {
+    switch (prob) {
+        case "high":
+            return "green"
+        case "madium":
+            return "yellow"
+        case "low":
+            return "red"
+    }
+}
+
 </script>
 
 <template>
-    <UTable :columns="columns" :rows="diseases" />
+    <UTable :columns="columns" :rows="diseases">
+        <template #prob-data="{ row }">
+            <UBadge :label="row.prob" :color="getProbabilityColor(row.prob)"></UBadge>
+        </template>
+    </UTable>
 </template>

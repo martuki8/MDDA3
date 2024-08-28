@@ -2,6 +2,7 @@
 import { ref, computed, onMounted } from 'vue'
 import hpWithFpJson from '~/assets/hp_with_fp.json'
 
+const model = defineModel()
 
 const sort = ref({
   column: 'name',
@@ -22,7 +23,15 @@ const q = ref('')
 
 // Pagination state
 const page = ref(1)
-const itemsPerPage = ref(10)
+const itemsPerPage = ref(6)
+
+watch(selected, (newValue) => {
+  model.value = newValue.length !== 0
+})
+
+onBeforeRouteLeave(() => {
+  localStorage.setItem("mdda-symptoms", JSON.stringify(selected.value))
+})
 
 // Load data and initialize symptoms
 onMounted(() => {
@@ -43,6 +52,12 @@ const filteredRows = computed(() => {
     })
   }
 
+  return rows
+
+})
+
+const paginatedFilteredRows = computed(() => {
+  let rows = filteredRows.value
   // Sorting logic
   if (sort.value.column) {
     rows.sort((a, b) => {
@@ -60,16 +75,6 @@ const filteredRows = computed(() => {
   return rows.slice(start, end)
 })
 
-// Total number of pages
-const pageCount = computed(() => {
-  const totalRows = symptoms.value.filter(symp => {
-    return !q.value || Object.values(symp).some(value => {
-      return String(value).toLowerCase().includes(q.value.toLowerCase())
-    })
-  }).length
-
-  return Math.ceil(totalRows / itemsPerPage.value)
-})
 
 function select(row) {
   const index = selected.value.findIndex(item => item.id === row.id)
@@ -86,10 +91,10 @@ function select(row) {
     <div class="flex px-3 py-3.5 border-b border-gray-200 dark:border-gray-700">
       <UInput v-model="q" placeholder="Write a symptom..." class="w-96" />
     </div>
-    <UTable v-model="selected" :columns="columns" :rows="filteredRows" :sort="sort" />
+    <UTable v-model="selected" :columns="columns" :rows="paginatedFilteredRows" :sort="sort" />
     <!-- Pagination Controls -->
     <div class="flex justify-end px-3 py-3.5 border-t border-gray-200 dark:border-gray-700">
-      <UPagination :model-value="page" :page-count="pageCount" :total="symptoms.length"
+      <UPagination :model-value="page" :page-count="itemsPerPage" :total="filteredRows.length"
         @update:model-value="newPage => page = newPage" />
     </div>
   </div>

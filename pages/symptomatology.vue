@@ -1,3 +1,8 @@
+<script lang="ts" setup>
+const isSymptomTableValid = ref(false)
+
+</script>
+
 <template>
 
   <div>
@@ -9,13 +14,20 @@
             the 'Continue' button.
           </div>
         </template>
-        <SymtomTable></SymtomTable>
+        <SymtomTable v-model="isSymptomTableValid"></SymtomTable>
 
         <template #footer>
           <div class="flex justify-center">
-            <UButton color="blue" class="flex justify-center py-2 px-4">
+            <NuxtLink to="/prediction" v-if="isSymptomTableValid">
+              <UButton color="blue" class="flex justify-center py-2 px-4">
+                Continue
+              </UButton>
+            </NuxtLink>
+
+            <UButton v-else color="blue" class="flex justify-center py-2 px-4" disabled>
               Continue
             </UButton>
+
           </div>
         </template>
       </UCard>

@@ -5,6 +5,7 @@ import type { FormError, FormSubmitEvent } from '#ui/types'
 const router = useRouter()
 
 const state = reactive({
+    gender: "HP:0012952", //Female hpo by default
     SelectorAge: undefined
 })
 
@@ -14,9 +15,15 @@ const validate = (state: any): FormError[] => {
     return errors
 }
 
+onMounted(() => {
+    localStorage.removeItem("mdda-gender")
+    localStorage.removeItem("mdda-age")
+    localStorage.removeItem("mdda-symptoms")
+})
+
 async function onSubmit(event: FormSubmitEvent<any>) {
-    // Do something with data
-    console.log(event.data)
+    localStorage.setItem("mdda-gender", event.data.gender)
+    localStorage.setItem("mdda-age", event.data.SelectorAge)
     router.push("/symptomatology")
 }
 </script>
@@ -36,7 +43,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
                     </template>
 
                     <div class="m-2 flex justify-center">
-                        <RadioButtonGender class="px-10 flex justify-center" />
+                        <RadioButtonGender class="px-10 flex justify-center" v-model="state.gender" />
 
                     </div>
                     <UFormGroup name="SelectorAge" :ui="{
