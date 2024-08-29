@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import { useStorage } from '@vueuse/core'
+import { string } from 'zod';
 
 const gender = useStorage("mdda-gender", "")
 const age = useStorage("mdda-age", "")
@@ -11,11 +12,31 @@ const requestBody = computed(() => {
 })
 
 
-const response = await useFetch("http://147.83.75.14:6789/getdiseases", {
+const { data: predictionResponse, error, status } = await useFetch("http://147.83.75.14:6789/getdiseases", {
   method: "POST",
-  body: requestBody.value
-})
+  body: requestBody.value,
+  transform: (data) => {
+    if (!data) return
+    return data.map((item) => {
+      console.log(item);
+      if (item.length < 8)
+        return
 
+      const pvalue = item[0]
+      const score = item[1]
+      const mondo = item[2]
+      const diseaseName = item[3]
+      const diseaseDef = item[4]
+      const genes = item[5]
+      const hpoProf = item[6]
+      const hpoNumBranch = item[7]
+
+      return {
+        pvalue, score, mondo, diseaseName, diseaseDef, genes, hpoProf, hpoNumBranch
+      }
+    })
+  }
+})
 
 </script>
 
@@ -29,7 +50,7 @@ const response = await useFetch("http://147.83.75.14:6789/getdiseases", {
             Prediction results:
           </div>
         </template>
-        <PredictionTable></PredictionTable>
+        <PredictionTable :data="predictionResponse"></PredictionTable>
 
         <template #footer>
           <div class="flex justify-center text-blue-900">
