@@ -9,7 +9,7 @@ const isSymptomTableValid = ref(false)
     <UContainer>
       <UCard class="w-[800px]">
         <template #header>
-          <div class="flex justify-between text-blue-900">
+          <div class="flex justify-between text-blue-800 dark:text-blue-200">
             Select from the list all the symtoms the patient describes. When all the symtoms are added, plase click on
             the 'Continue' button.
           </div>

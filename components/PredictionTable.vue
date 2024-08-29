@@ -125,7 +125,7 @@ function getPvalueLabel(pvalue: string) {
                 </div>
             </template>
             <template #expand="{ row }">
-                <div class="p-4 gap-3 flex flex-col">
+                <div class="p-4 gap-3 flex flex-col text-sm">
                     <div class="flex gap-2">
                         <span v-for="(gene, index) in row.genes.split(' ')" :key="`${row.pvalue}-${gene}-${index}`"
                             class="inline-block rounded-full px-3 py-1 text-sm font-semibold text-center bg-blue-300 text-blue-900">

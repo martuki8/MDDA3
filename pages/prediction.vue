@@ -44,7 +44,7 @@ const { data: predictionResponse, error, status } = await useFetch("http://147.8
 
   <UCard class="w-[1200px] px-4">
     <template #header>
-      <div class="flex justify-between text-blue-900">
+      <div class="flex justify-between text-blue-800 dark:text-blue-200">
         Prediction results:
       </div>
     </template>
@@ -54,7 +54,7 @@ const { data: predictionResponse, error, status } = await useFetch("http://147.8
 
 
     <template #footer>
-      <div class="flex justify-center text-blue-900">
+      <div class="flex justify-center text-blue-800 dark:text-blue-200">
         Thank you for supporting the MDDA!
       </div>
     </template>
