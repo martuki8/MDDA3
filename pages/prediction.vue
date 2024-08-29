@@ -24,7 +24,7 @@ const { data: predictionResponse, error, status } = await useFetch("http://147.8
 
       const pvalue = item[0]
       const score = item[1]
-      const mondo = item[2]
+      const mondo = item[2].split('\n')[0]
       const diseaseName = item[3]
       const diseaseDef = item[4]
       const genes = item[5]
@@ -42,24 +42,24 @@ const { data: predictionResponse, error, status } = await useFetch("http://147.8
 
 <template>
 
-  <div>
-    <UContainer>
-      <UCard class="w-[800px]">
-        <template #header>
-          <div class="flex justify-between text-blue-900">
-            Prediction results:
-          </div>
-        </template>
-        <PredictionTable :data="predictionResponse"></PredictionTable>
+  <UCard class="w-[1200px] px-4">
+    <template #header>
+      <div class="flex justify-between text-blue-900">
+        Prediction results:
+      </div>
+    </template>
+    <div class="w-full">
+      <PredictionTable :data="predictionResponse"></PredictionTable>
+    </div>
 
-        <template #footer>
-          <div class="flex justify-center text-blue-900">
-            Thank you for supporting the MDDA!
-          </div>
-        </template>
-      </UCard>
-    </UContainer>
-  </div>
+
+    <template #footer>
+      <div class="flex justify-center text-blue-900">
+        Thank you for supporting the MDDA!
+      </div>
+    </template>
+  </UCard>
+
 
 
 </template>

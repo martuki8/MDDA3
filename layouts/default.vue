@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <BaseHeader></BaseHeader>
-    </div>
+
+    <BaseHeader></BaseHeader>
+
     <div> <!--contenedor-->
         <BreadCrumb class="flex justify-center py-10 px-4">
         </BreadCrumb>

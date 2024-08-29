@@ -36,7 +36,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
             <UContainer>
                 <UCard class="w-[800px]">
                     <template #header>
-                        <div class="flex justify-between text-blue-900">
+                        <div class="flex justify-between">
                             To start the prediction process select the patient sex and age. Then click the 'Continue
                             button'.
                         </div>

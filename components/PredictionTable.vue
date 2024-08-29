@@ -11,13 +11,14 @@ interface PredictionResponse {
 }
 const props = defineProps<{ data: PredictionResponse[] }>()
 
+
 // columns
 const columns = [{
     key: 'pvalue',
     label: 'Probability'
 }, {
     key: 'diseaseName',
-    label: 'Disease'
+    label: 'Disease',
 }, {
     key: 'mondo',
     label: 'MONDO Id'
@@ -39,6 +40,21 @@ const probStatus = [{
     label: 'Low',
     value: false
 }]
+
+// Pagination state
+const page = ref(1)
+const itemsPerPage = ref(10)
+
+const paginatedFilteredRows = computed(() => {
+    if (!props.data || !props.data.length) return []
+    let rows = props.data
+
+    // Pagination logic
+    const start = (page.value - 1) * itemsPerPage.value
+    const end = start + itemsPerPage.value
+    return rows.slice(start, end)
+})
+
 
 // Probability color class mapping
 function getProbabilityClasses(prob?: string) {
@@ -93,15 +109,38 @@ function getPvalueLabel(pvalue: string) {
     }
 }
 
+
+
 </script>
 
 <template>
-    <UTable :columns="columns" :rows="data">
-        <template #pvalue-data="{ row }">
-            <span class="inline-block rounded-full px-3 py-1 text-sm font-semibold text-center"
-                :class="[getProbabilityClasses(getPvalueLabel(row.pvalue)).background, getProbabilityClasses(getPvalueLabel(row.pvalue)).text]">
-                {{ getPvalueLabel(row.pvalue) }}
-            </span>
-        </template>
-    </UTable>
+    <div>
+        <UTable :columns="columns" :rows="paginatedFilteredRows">
+            <template #pvalue-data="{ row }">
+                <div class="flex w-full justify-center">
+                    <span class="inline-block rounded-full px-3 py-1 text-sm font-semibold text-center"
+                        :class="[getProbabilityClasses(getPvalueLabel(row.pvalue)).background, getProbabilityClasses(getPvalueLabel(row.pvalue)).text]">
+                        {{ getPvalueLabel(row.pvalue) }}
+                    </span>
+                </div>
+            </template>
+            <template #expand="{ row }">
+                <div class="p-4 gap-3 flex flex-col">
+                    <div class="flex gap-2">
+                        <span v-for="(gene, index) in row.genes.split(' ')" :key="`${row.pvalue}-${gene}-${index}`"
+                            class="inline-block rounded-full px-3 py-1 text-sm font-semibold text-center bg-blue-300 text-blue-900">
+                            {{ gene }}
+                        </span>
+                    </div>
+                    <p> {{ row.diseaseDef }}</p>
+                </div>
+
+            </template>
+        </UTable>
+        <div class="flex justify-end px-3 py-3.5 border-t border-gray-200 dark:border-gray-700">
+            <UPagination :model-value="page" :page-count="itemsPerPage" :total="data?.length || 0"
+                @update:model-value="newPage => page = newPage" />
+        </div>
+    </div>
+
 </template>
